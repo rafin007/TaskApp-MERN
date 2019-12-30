@@ -13,8 +13,15 @@
     }
 
     &:hover {
-        background-color: deepskyblue;
+        background-color: rgb(13, 50, 80);
         transform: translateY(-4px);
         box-shadow: .1rem .1rem .3rem#000;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background-color: #ccc;
+        transform: none;
+        box-shadow: none;
     }
 }

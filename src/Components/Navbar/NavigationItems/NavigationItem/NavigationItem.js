@@ -1,5 +1,4 @@
 import React from 'react';
-import Aux from '../../../HOC/auxiliary';
 import classes from './NavigationItem.scss';
 import { NavLink } from 'react-router-dom';
 

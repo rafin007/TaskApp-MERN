@@ -5,6 +5,10 @@ import classes from './Auth.scss';
 
 import Button from '../../Components/UI/Button/Button';
 import Input from '../../Components/UI/Input/Input';
+import Spinner from '../../Components/UI/Spinner/Spinner';
+
+import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
 
 class Signup extends Component {
     state = {
@@ -15,6 +19,12 @@ class Signup extends Component {
             age: { ...this.inputConfigHandler('number', 'Your age') }
         },
         formIsValid: false
+    }
+
+    componentDidUpdate() {
+        if (this.props.token) {
+            this.props.history.push('/tasks');
+        }
     }
 
     inputConfigHandler(type, placeholder) {
@@ -68,6 +78,19 @@ class Signup extends Component {
         return isValid;
     }
 
+    onSubmitHandler = (event) => {
+        event.preventDefault();
+
+        const data = {
+            name: this.state.userForm.name.value,
+            email: this.state.userForm.email.value,
+            password: this.state.userForm.password.value,
+            age: this.state.userForm.age.value
+        };
+
+        this.props.onSignup(data);
+    }
+
     render() {
 
         const formElements = [];
@@ -79,17 +102,40 @@ class Signup extends Component {
             });
         }
 
+        let form = (
+            <form onSubmit={this.onSubmitHandler} >
+                {formElements.map(element => <Input touched={element.config.touched} invalid={!element.config.valid} key={element.id} type={element.config.type} placeholder={element.config.placeholder} changed={(event) => { this.onChangedHandler(event, element.id) }} />)}
+                <Button disabled={this.state.formIsValid} >Sign up</Button>
+            </form>
+        );
+
+        if (this.props.loading) {
+            form = <Spinner />;
+        }
+
         return (
             <div className={classes.AuthForm} >
                 <h1 className={classes.header} >Task App</h1>
-                <form>
-                    {formElements.map(element => <Input touched={element.config.touched} invalid={!element.config.valid} key={element.id} type={element.config.type} placeholder={element.config.placeholder} changed={(event) => { this.onChangedHandler(event, element.id) }} />)}
-                </form>
-                <Button>Sign up</Button>
+                {form}
                 <p style={{ fontSize: '1rem' }} >Sign in <NavLink to="/signin">here</NavLink> </p>
             </div>
         );
     }
 }
 
-export default Signup;
+const mapStateToProps = state => {
+    return {
+        userId: state.id,
+        token: state.token,
+        loading: state.loading,
+        name: state.name
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onSignup: (data) => dispatch(actions.signup(data))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

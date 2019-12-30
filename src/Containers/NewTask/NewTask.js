@@ -68,7 +68,7 @@ class NewTask extends Component {
                 <form>
                     {formElements.map(element => <Input touched={element.config.touched} invalid={!element.config.valid} key={element.id} type={element.config.type} placeholder={element.config.placeholder} options={['Status', 'Complete', 'Incomplete']} changed={(event) => { this.onChangedHandler(event, element.id) }} />)}
                 </form>
-                <Button>Create</Button>
+                <Button disabled={this.state.formIsValid} >Create</Button>
             </div>
         );
     }

@@ -3,6 +3,8 @@
     width: 80%;
     padding: 1rem;
     border-radius: 10px;
+    background-color: rgba(steelblue, 0.5);
+    color: #fff;
 
     &:not(:last-child) {
         margin-bottom: 1rem;

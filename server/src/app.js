@@ -1,12 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 require('./db/mongoose');
 const usersRouter = require('./router/user');
 const tasksRouter = require('./router/task');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 //middlewares
 app.use((req, res, next) => {
@@ -26,8 +28,8 @@ app.listen(port, () => {
 
 //mongoose populate
 
-const User = require('./models/User');
-const Task = require('./models/Task');
+// const User = require('./models/User');
+// const Task = require('./models/Task');
 
 // const myMongoose = async () => {
 //     // //to fetch the author of a particular task
