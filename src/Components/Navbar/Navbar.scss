@@ -1,0 +1,14 @@
+.Navbar {
+    background-color: steelblue;
+    width: 100%;
+    font-size: 1.5rem;
+    display: flex;
+    height: 3rem;
+    padding: 1rem;
+    align-items: center;
+    color: #fff;
+
+    &__logo {
+        margin-right: auto;
+    }
+}

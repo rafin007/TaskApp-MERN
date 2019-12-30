@@ -1,0 +1,20 @@
+.Button {
+    background-color: steelblue;
+    padding: .7rem;
+    border-radius: 100px;
+    color: #fff;
+    font-weight: 300;
+    width: 7rem;
+    border: none;
+    transition: all .2s;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        background-color: deepskyblue;
+        transform: translateY(-4px);
+        box-shadow: .1rem .1rem .3rem#000;
+    }
+}

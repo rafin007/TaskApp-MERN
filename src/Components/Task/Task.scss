@@ -1,0 +1,23 @@
+.Task {
+    border: 1px solid #ccc;
+    width: 80%;
+    padding: 1rem;
+    border-radius: 10px;
+
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+}
+
+.Task a,
+.Task a:visited,
+.Task a:active {
+    text-decoration: none;
+    font-size: 1.3rem;
+    margin-right: .5rem;
+    color: steelblue;
+}
+
+.detail {
+    font-size: 1.5rem;
+}

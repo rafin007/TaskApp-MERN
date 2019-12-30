@@ -1,0 +1,14 @@
+.NavigationItems a:active,
+.NavigationItems a:link,
+.NavigationItems a:visited {
+    text-decoration: none;
+    color: #fff;
+}
+
+.NavigationItems a:hover {
+    color: #eee;
+}
+
+.NavigationItems {
+    display: flex;
+}

@@ -1,0 +1,41 @@
+.Input {
+
+    margin: .5rem;
+    padding: .5rem;
+
+    &__element {
+        border-radius: 100px;
+        background-color: #eee;
+        border: 1px solid #ccc;
+        width: 100%;
+        padding: .5rem;
+
+        &:focus {
+            outline: none;
+            background-color: #ccc;
+        }
+    }
+}
+
+.invalid {
+    border: 1px solid red;
+    background-color: rgb(245, 175, 167);
+}
+
+.valid {
+    border: 1px solid green;
+    background-color: lightgreen;
+}
+
+// select {
+//     border-radius: 100px;
+//     background-color: #eee;
+//     border: 1px solid #ccc;
+//     width: 100%;
+//     padding: .5rem;
+
+//     &:focus {
+//         outline: none;
+//         background-color: #ccc;
+//     }
+// }
